@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-4-10 9:43:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="org.xubh.hibernate.bean.Tree" table="TREE">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="age" type="int">
+			<column name="AGE" />
+		</property>
+		<property name="height" type="int">
+			<column name="HEIGHT" />
+		</property>
+		<set name="leaves" inverse="false">
+			<key column="tree_id"></key><!-- 指定关联主键的列名叫啥 -->
+			<one-to-many class="org.xubh.hibernate.bean.Leaves" />
+		</set>
+	</class>
+</hibernate-mapping>
